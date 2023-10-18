@@ -5,21 +5,25 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
-    <h1>Data Management</h1>
-    <ul>
-        <% items.forEach(function(item) { %>
-            <li>
-                <%= item.name %> -
-                <a href="/edit/<%= item._id %>">Edit</a> -
-                <a href="/delete/<%= item._id %>">Delete</a>
-            </li>
-        <% }); %>
-    </ul>
+    <div class="container">
+        <h1>Data Management</h1>
+        <ul>
+            <% items.forEach(function(item) { %>
+                <li>
+                    <%= item.name %> -
+                    <a href="/edit/<%= item._id %>">Edit</a> -
+                    <a href="/delete/<%= item._id %>">Delete</a>
+                </li>
+            <% }); %>
+        </ul>
 
-    <h2>Add Data</h2>
-    <form method="POST" action="/add">
-        <input type="text" name="name" placeholder="Item Name" required>
-        <button type="submit">Add</button>
-    </form>
+        <h2>Add Data</h2>
+        <form method="POST" action="/add">
+            <input type="text" name="name" placeholder="Item Name" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <a href="/statistics">Lihat Statistik</a>
+    </div>
 </body>
 </html>
