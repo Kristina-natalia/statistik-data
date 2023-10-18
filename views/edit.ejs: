@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Data</title>
+</head>
+<body>
+    <h1>Edit Data</h1>
+    <form method="POST" action="/update/<%= item._id %>">
+        <input type="text" name="name" value="<%= item.name %>" required>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
