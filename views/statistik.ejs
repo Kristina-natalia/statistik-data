@@ -2,24 +2,29 @@
 <html>
 <head>
     <title>Statistik Data</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Perhitungan Statistik</h1>
-    <form method="POST" action="/calculate">
-        <label for="data">Data (pisahkan dengan koma):</label>
-        <input type="text" id="data" name="data" required>
-        <button type="submit">Hitung</button>
-    </form>
+    <div class="container" id="statistics">
+        <h1>Perhitungan Statistik</h1>
+        <form method="POST" action="/calculate">
+            <label for="data">Data (pisahkan dengan koma):</label>
+            <input type="text" id="data" name="data" required>
+            <button type="submit">Hitung</button>
+        </form>
 
-    <h2>Hasil Statistik</h2>
-    <p>Mean: <span id="mean">-</span></p>
-    <p>Median: <span id="median">-</span></p>
-    <p>Modus: <span id="mode">-</span></p>
+        <h2>Hasil Statistik</h2>
+        <p>Mean: <span id="mean">-</span></p>
+        <p>Median: <span id="median">-</span></p>
+        <p>Modus: <span id="mode">-</span></p>
+        <p>Batas Atas: <span id="upperLimit">-</span></p>
+        <p>Batas Bawah: <span id="lowerLimit">-</span></p>
+        <p>Tabel Z: <span id="zTable">-</span></p>
 
-    <h2>Grafik</h2>
-    <canvas id="myChart" width="400" height="400"></canvas>
-
+        <h2>Grafik</h2>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
