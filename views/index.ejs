@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>Data Management</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
-    <h1>Data List</h1>
+    <h1>Data Management</h1>
     <ul>
         <% items.forEach(function(item) { %>
             <li>
@@ -18,7 +19,7 @@
     <h2>Add Data</h2>
     <form method="POST" action="/add">
         <input type="text" name="name" placeholder="Item Name" required>
-        <input type="submit" value="Add">
+        <button type="submit">Add</button>
     </form>
 </body>
 </html>
