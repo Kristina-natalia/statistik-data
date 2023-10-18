@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistik Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Perhitungan Statistik</h1>
+    <form method="POST" action="/calculate">
+        <label for="data">Data (pisahkan dengan koma):</label>
+        <input type="text" id="data" name="data" required>
+        <button type="submit">Hitung</button>
+    </form>
+
+    <h2>Hasil Statistik</h2>
+    <p>Mean: <span id="mean">-</span></p>
+    <p>Median: <span id="median">-</span></p>
+    <p>Modus: <span id="mode">-</span></p>
+
+    <h2>Grafik</h2>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
