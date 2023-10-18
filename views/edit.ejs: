@@ -5,10 +5,12 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
-    <h1>Edit Data</h1>
-    <form method="POST" action="/update/<%= item._id %>">
-        <input type="text" name="name" value="<%= item.name %>" required>
-        <button type="submit">Update</button>
-    </form>
+    <div class="container">
+        <h1>Edit Data</h1>
+        <form method="POST" action="/update/<%= item._id %>">
+            <input type="text" name="name" value="<%= item.name %>" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
 </body>
 </html>
