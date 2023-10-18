@@ -41,3 +41,35 @@ app.get('/delete/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+// Fungsi perhitungan statistik
+function calculateStatistics(items) {
+    const values = items.map(item => parseFloat(item.name));
+    const sum = values.reduce((a, b) => a + b, 0);
+    const mean = sum / values.length;
+
+    values.sort((a, b) => a - b);
+    const middle = Math.floor(values.length / 2);
+    const median = values.length % 2 === 0 ? (values[middle - 1] + values[middle]) / 2 : values[middle];
+
+    const modeMap = {};
+    let maxCount = 0;
+    let modes = [];
+
+    for (const value of values) {
+        if (!modeMap[value]) modeMap[value] = 1;
+        else modeMap[value]++;
+
+        if (modeMap[value] > maxCount) {
+            modes = [value];
+            maxCount = modeMap[value];
+        } else if (modeMap[value] === maxCount) {
+            modes.push(value);
+        }
+    }
+
+    const lowerBound = Math.min(...values);
+    const upperBound = Math.max(...values);
+    const zTable = {}; // Isi dengan data Z-table
+
+    return { mean, median, modes, lowerBound, upperBound, zTable };
+}
