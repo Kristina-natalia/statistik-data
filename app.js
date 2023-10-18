@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 mongoose.connect('mongodb://localhost/data_app', { useNewUrlParser: true, useUnifiedTopology: true });
 const Item = mongoose.model('Item', { name: String });
 
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -48,8 +49,15 @@ app.post('/calculate', (req, res) => {
     const mean = math.mean(numbers);
     const median = math.median(numbers);
     const mode = math.mode(numbers);
+    const upperLimit = math.quantileSeq(numbers, 0.975);
+    const lowerLimit = math.quantileSeq(numbers, 0.025);
+    const zTable = math.quantileSeq(numbers, 0.95);
 
-    res.json({ mean, median, mode });
+    res.json({ mean, median, mode, upperLimit, lowerLimit, zTable });
+});
+
+app.get('/statistics', (req, res) => {
+    res.render('statistics');
 });
 
 app.listen(port, () => {
